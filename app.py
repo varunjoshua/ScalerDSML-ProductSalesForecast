@@ -12,7 +12,28 @@ import datetime
 import sys
 import os
 
-st.set_page_config(page_title="Sales Forecasting App", layout="centered")
+st.set_page_config(
+    page_title="Sales Forecasting App",
+    page_icon="📈",
+    layout="centered",
+    menu_items={
+        'About': """
+        # Sales Forecasting App
+        Predict future sales and orders using advanced time series forecasting models.
+        """
+    }
+)
+
+# Add metadata for social media previews
+st.markdown("""
+    <head>
+        <title>Multi-model Forecasting App</title>
+        <meta property="og:title" content="Multi-model Sales Forecasting"/>
+        <meta property="og:description" content="Advanced time series forecasting application for predicting sales and orders using multiple models including Linear Regression, Prophet, SARIMAX, and XGBoost."/>
+        <meta property="og:image" content="https://your-image-url.com/preview.jpg"/>
+    </head>
+""", unsafe_allow_html=True)
+
 st.title("Sales Forecasting App")
 
 from forecasting import (
@@ -28,7 +49,7 @@ prophet_orders = pd.read_csv("https://raw.githubusercontent.com/varunjoshua/Scal
 
 # Step 1: User Input
 
-entity = st.selectbox("Select Region", ["Company", "Region 1", "Region 2", "Region 3", "Region 4"])
+entity = st.selectbox("Select Segment", ["Company", "Region 1", "Region 2", "Region 3", "Region 4"])
 target_choice = st.selectbox("Select Forecast Target", ["Sales", "Orders"])
 model_choice = st.selectbox("Select Forecasting Model", ["Linear Regression", "XGBoost", "ARIMA", "SARIMAX", "Prophet"])
 m_steps = st.slider("Select Forecast Horizon (in days)", min_value=7, max_value=61, value=30, step=1)
