@@ -13,26 +13,16 @@ import sys
 import os
 
 st.set_page_config(
-    page_title="Sales Forecasting App",
+    page_title="Multi-model Sales Forecasting",
     page_icon="📈",
     layout="centered",
     menu_items={
         'About': """
-        # Sales Forecasting App
-        Predict future sales and orders using advanced time series forecasting models.
+        "Advanced time series forecasting application for predicting sales and orders using multiple models including Linear Regression, Prophet, SARIMAX, and XGBoost.
         """
     }
 )
 
-# Add metadata for social media previews
-st.markdown("""
-    <head>
-        <title>Multi-model Forecasting App</title>
-        <meta property="og:title" content="Multi-model Sales Forecasting"/>
-        <meta property="og:description" content="Advanced time series forecasting application for predicting sales and orders using multiple models including Linear Regression, Prophet, SARIMAX, and XGBoost."/>
-        <meta property="og:image" content="https://your-image-url.com/preview.jpg"/>
-    </head>
-""", unsafe_allow_html=True)
 
 st.title("Sales Forecasting App")
 
